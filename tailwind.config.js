@@ -14,6 +14,7 @@ export default {
         appBackground: "hsl(270, 20%, 96%)",
         submitButtonBackground: "hsl(271, 36%, 24%)",
         radioButtonOutline: "hsl(289, 100%, 72%)",
+        bgChatLeft: "hsl(274,37%,93%)",
         gradientColor1: "hsl(293, 100%, 63%)",
         gradientColor2: "hsl(264, 100%, 61%)",
       },

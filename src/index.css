@@ -9,4 +9,12 @@
     font-family: "Rubik", sans-serif;
     font-weight: 400;
   }
+  #chat_window::-webkit-scrollbar {
+    width: 5px;
+  }
+  #chat_window::-webkit-scrollbar-thumb {
+    width: 5px;
+    background: rgba(111, 111, 111, 0.195);
+    border-radius: 5px;
+  }
 }
