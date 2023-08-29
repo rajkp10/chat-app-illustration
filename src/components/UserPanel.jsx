@@ -1,9 +1,14 @@
 import React from "react";
 import Avatar from "../assets/avatar.jpg";
+import { motion } from "framer-motion";
 
 function UserPanel() {
   return (
-    <div className="z-20 h-[15%] flex items-end w-full bg-gradient-to-r from-gradientColor2 to-gradientColor1 shadow-lg rounded-b-lg">
+    <motion.div
+      initial={{ y: -75 }}
+      animate={{ y: 0, transition: { delay: 1.5, ease: "easeInOut" } }}
+      className="z-20 h-[13%] flex items-end w-full bg-gradient-to-r from-gradientColor2 to-gradientColor1 shadow-lg rounded-b-lg"
+    >
       {/* mobile header section */}
       <div className="flex items-center justify-between w-full px-2 mb-2">
         {/* chevron-left */}
@@ -48,7 +53,7 @@ function UserPanel() {
           />
         </svg>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

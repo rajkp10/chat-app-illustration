@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const options = [
   {
@@ -13,12 +14,25 @@ const options = [
   },
 ];
 
+const child = {
+  hidden: {
+    opacity: 0,
+    y: 5,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 function RadioMessage() {
   return (
     <>
       {options.map((option) => {
         return (
-          <label
+          <motion.label
+            variants={child}
+            whileTap={{ scale: 0.9 }}
             htmlFor={option.id}
             key={option.id}
             className="p-2 mx-2 flex justify-between items-center rounded-xl rounded-es-sm w-[75%] bg-gradient-to-r from-gradientColor1 to-gradientColor2 text-white cursor-pointer"
@@ -30,11 +44,11 @@ function RadioMessage() {
                 id={option.id}
                 className="hidden peer"
               />
-              <div className="w-3 h-3 rounded-full outline outline-1 outline-offset-1 outline-white peer-checked:bg-white"></div>
+              <div className="w-3 h-3 transition duration-200 rounded-full outline outline-1 outline-offset-1 outline-white peer-checked:bg-white"></div>
               <span className="text-[10px]">{option.message}</span>
             </div>
             <span className="text-sm font-bold">&#x24;{option.price}</span>
-          </label>
+          </motion.label>
         );
       })}
     </>

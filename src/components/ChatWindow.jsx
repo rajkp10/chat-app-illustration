@@ -2,6 +2,19 @@ import React, { useEffect } from "react";
 import TextMessage from "./TextMessage";
 import ImageMessage from "./ImageMessage";
 import RadioMessage from "./RadioMessage";
+import { motion } from "framer-motion";
+
+const parent = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delay: 2,
+      when: "beforeChildren",
+    },
+  },
+};
 
 function ChatWindow({ messages }) {
   useEffect(() => {
@@ -10,7 +23,10 @@ function ChatWindow({ messages }) {
   }, [messages]);
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={parent}
       id="chat_window"
       className="flex flex-col gap-2 py-3 overflow-y-scroll"
     >
@@ -39,7 +55,7 @@ function ChatWindow({ messages }) {
         messages.map((message, i) => {
           return <TextMessage key={i} align={"end"} message={message} />;
         })}
-    </div>
+    </motion.div>
   );
 }
 

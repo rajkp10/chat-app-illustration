@@ -1,10 +1,15 @@
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 function InputBar({ handleSubmit }) {
   const ref = useRef(null);
 
   return (
-    <div className="h-[8%] flex items-center p-2 gap-2 overflow-hidden mt-auto bg-white m-3 rounded-3xl">
+    <motion.div
+      initial={{ y: 50 }}
+      animate={{ y: 0, transition: { delay: 2, ease: "easeInOut" } }}
+      className="h-[8%] flex items-center p-2 gap-2 overflow-hidden mt-auto bg-white m-3 rounded-3xl"
+    >
       {/* input area */}
       <input
         ref={ref}
@@ -13,10 +18,14 @@ function InputBar({ handleSubmit }) {
         className="w-full pl-2 text-xs outline-none placeholder:text-textPlaceholder text-textChatRight"
       />
       {/* send button */}
-      <button
+      <motion.button
+        whileTap={{ scale: 0.9 }}
         type="button"
         className="rounded-full bg-submitButtonBackground"
-        onClick={() => handleSubmit(ref.current.value)}
+        onClick={() => {
+          handleSubmit(ref.current.value);
+          ref.current.value = "";
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +39,8 @@ function InputBar({ handleSubmit }) {
             clipRule="evenodd"
           />
         </svg>
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 }
 

@@ -8,6 +8,20 @@ function App() {
         <Mobile />
         <Hero />
       </div>
+      <span className="absolute left-0 right-0 mx-auto text-xs text-center bottom-3">
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io/home" className="text-blue-800">
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a
+          href="https://www.frontendmentor.io/profile/rajkp10"
+          className="text-blue-800"
+        >
+          rajkp10
+        </a>
+        .
+      </span>
     </main>
   );
 }
