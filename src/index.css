@@ -9,6 +9,9 @@
     font-family: "Rubik", sans-serif;
     font-weight: 400;
   }
+  #chat_window {
+    scroll-behavior: smooth;
+  }
   #chat_window::-webkit-scrollbar {
     width: 5px;
   }

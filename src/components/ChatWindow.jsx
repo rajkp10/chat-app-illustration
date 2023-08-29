@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextMessage from "./TextMessage";
 import ImageMessage from "./ImageMessage";
 import RadioMessage from "./RadioMessage";
 
-function ChatWindow() {
+function ChatWindow({ messages }) {
+  useEffect(() => {
+    document.querySelector("#chat_window").scrollTop =
+      document.querySelector("#chat_window").scrollHeight;
+  }, [messages]);
+
   return (
     <div
       id="chat_window"
@@ -30,6 +35,10 @@ function ChatWindow() {
         }
       />
       <RadioMessage />
+      {messages.length !== 0 &&
+        messages.map((message, i) => {
+          return <TextMessage key={i} align={"end"} message={message} />;
+        })}
     </div>
   );
 }

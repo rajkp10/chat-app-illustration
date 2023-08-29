@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 
-function InputBar() {
+function InputBar({ handleSubmit }) {
+  const ref = useRef(null);
+
   return (
     <div className="h-[8%] flex items-center p-2 gap-2 overflow-hidden mt-auto bg-white m-3 rounded-3xl">
       {/* input area */}
       <input
+        ref={ref}
         type="text"
         placeholder="Type a message..."
         className="w-full pl-2 text-xs outline-none placeholder:text-textPlaceholder text-textChatRight"
       />
       {/* send button */}
-      <button type="button" className="rounded-full bg-submitButtonBackground">
+      <button
+        type="button"
+        className="rounded-full bg-submitButtonBackground"
+        onClick={() => handleSubmit(ref.current.value)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

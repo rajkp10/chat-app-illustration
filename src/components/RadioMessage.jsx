@@ -21,7 +21,7 @@ function RadioMessage() {
           <label
             htmlFor={option.id}
             key={option.id}
-            className="p-2 mx-2 flex justify-between items-center rounded-xl rounded-es-sm w-[75%] bg-gradient-to-r from-gradientColor1 to-gradientColor2 text-white"
+            className="p-2 mx-2 flex justify-between items-center rounded-xl rounded-es-sm w-[75%] bg-gradient-to-r from-gradientColor1 to-gradientColor2 text-white cursor-pointer"
           >
             <div className="flex items-center gap-2">
               <input
